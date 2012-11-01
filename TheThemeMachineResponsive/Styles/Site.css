@@ -63,7 +63,7 @@ footer, header, hgroup, nav, section, summary { display: block; }
 
 /* Embedded Content */
 figure {margin: 0}
-img, object, embed, video {max-width: 100%; _width: 100%; height: auto;} /* Fluid images */
+img, object, embed, video { max-width: 100%; _width: 100%; height: auto; } /* Fluid images */
 img {border: 0;	-ms-interpolation-mode: bicubic} /* Improve IE's resizing of images */
 svg:not(:root) {overflow: hidden} /* Correct IE9 overflow */
 audio, canvas, video { display: inline-block; } /* Corrects `inline-block` display not defined in IE 8/9. ! normalize.css v2.0.1 | MIT License | git.io/normalize */
@@ -183,6 +183,10 @@ dd          { margin-left: 2.03125%;}
 
 /* Text elements */
 p                       { margin: 0 0 1em; line-height: 1.538em; }
+p img.left, 
+p img[align="left"],
+p img.right, 
+p img[align="right"]    { display: block; float: none; margin: 0.923em auto; }
 
 a:focus, 
 a:hover     { text-decoration: underline; }
@@ -708,7 +712,7 @@ body {
 
 /* Float Images */
 p img.left, 
-p img[align="left"]     { float: left; margin: 0.923em 0.923em 0.923em 0; padding: 0; }
+p img[align="left"]     { float: left; margin: 0.923em 0.923em 0.923em 0; }
 p img.right, 
 p img[align="right"]    { float: right; margin: 0.923em 0 0.923em 0.923em; }
 

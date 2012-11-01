@@ -5,8 +5,8 @@
 
 $(function () {
 
-    /* Collapse main navigation, create dropdown with icon, and append/remove based on breakpoints when document loads */
-    if ($(window).width() <= 768) {
+    // Function to collapse main navigation and create dropdown with icon
+    function responsiveNavigation() {
         $('#layout-navigation').hide();
         $('<a href="#" id="nav-collapsed"><span class="responsive-nav-bars"></span><span class="responsive-nav-bars"></span><span class="responsive-nav-bars"></span><span class="responsive-menu-text">Menu</span></a>').appendTo('.zone-header');
         $('#nav-collapsed').click(function () {
@@ -17,24 +17,20 @@ $(function () {
                 $('#nav-collapsed').removeClass('is-active');
             }
         });
+    };
+
+    /* Append/remove responsive navigation based on breakpoints when document loads */
+    if ($(window).width() <= 768) {
+        responsiveNavigation();
     } else if ($(window).width() > 768) {
         $('#nav-collapsed').remove();
         $('#layout-navigation').show();
     };
 
-    /* Create or remove mobile navigation on resize event */
+    /* Append/remove responsive navigation based on breakpoints on resize event */
     $(window).resize(function () {
         if ($(window).width() <= 768 && $('#nav-collapsed').length != 1) {
-            $('#layout-navigation').hide();
-            $('<a href="#" id="nav-collapsed"><span class="responsive-nav-bars"></span><span class="responsive-nav-bars"></span><span class="responsive-nav-bars"></span><span class="responsive-menu-text">Menu</span></a>').appendTo('.zone-header');
-            $('#nav-collapsed').click(function () {
-                $('#layout-navigation').toggle();
-                if ($('#layout-navigation').is(':visible')) {
-                    $('#nav-collapsed').addClass('is-active');
-                } else {
-                    $('#nav-collapsed').removeClass('is-active');
-                }
-            });
+            responsiveNavigation();
         } else if ($(window).width() > 768) {
             $('#nav-collapsed').remove();
             $('#layout-navigation').show();
