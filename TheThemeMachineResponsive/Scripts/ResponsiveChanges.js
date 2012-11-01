@@ -55,10 +55,10 @@ $(function () {
         $('#aside-first').insertAfter('#layout-content');
     }
     $(window).resize(function () {
-        if ($(window).width() <= 768) {
+        if ($(window).width() <= 768 && $('#aside-first').length == 1) {
             $('#aside-first').insertAfter('#layout-content');
         }
-        else {
+        else if ($('#aside-first').length == 1) {
             $('#aside-first').insertBefore('#layout-content');
         }
     });

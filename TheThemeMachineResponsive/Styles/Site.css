@@ -1,7 +1,11 @@
 ﻿/*
-Theme: Theme Machine
-Author: Orchard Team – http://www.orchardproject.net
-Copyright: 2010, Orchard. All Rights Reserved
+Theme: Theme Machine Responsive
+Author: Orchard Team modified by Planet Telex – http://www.orchardproject.net, http://www.planettelex.net
+Copyright: 2012, Orchard. All Rights Reserved
+Acknowledgments: Modifications to TheThemeMachine for an enhanced mobile/responsive experience included snippets from: 
+HTML5 BP (github.com/h5bp/html5-boilerplate), 
+Normalize (git.io/normalize),
+1140 Grid System (cssgrid.net/)
 */
 
 
@@ -92,7 +96,7 @@ a:active, a:hover { outline: 0; } /* Improves readability when focused and also 
 
 
 
-/* General
+/* General (Base styling for ALL devices and resolutions)
 ***************************************************************/
 
 /* Default font settings. 
@@ -134,7 +138,7 @@ html {
 
 body  {
   line-height: 1; 
-  font-size: 81.3%;
+  font-size: 81.3%; /* May need to adjust responsive navigation placement if you change this value */
   color: #434343; 
   background: #fff;
   font-family: Tahoma, "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -179,10 +183,6 @@ dd          { margin-left: 2.03125%;}
 
 /* Text elements */
 p                       { margin: 0 0 1em; line-height: 1.538em; }
-p img.left, 
-p img[align="left"]     { float: left; margin: 0.923em 0.923em 0.923em 0; padding: 0; }
-p img.right, 
-p img[align="right"]    { float: right; margin: 0.923em 0 0.923em 0.923em; }
 
 a:focus, 
 a:hover     { text-decoration: underline; }
@@ -301,18 +301,17 @@ textarea {
 ***************************************************************/
 #layout-wrapper { }
 
-#layout-header, #layout-featured, #layout-before-main, #layout-main, #layout-footer, #layout-after-main, #layout-tripel {
+#layout-header, #layout-navigation, #layout-featured, #layout-before-main, #layout-main, #layout-footer, #layout-after-main, #layout-tripel {
     max-width:960px;
     margin:0 auto;
 }
 
 /* Navigation */
 #layout-navigation {
-    max-width: 960px;
     margin: -3.3em auto 0;
     display: block;
     border-bottom: none;
-} /* Responsive Changes*/
+}
 
 .lt-ie8 #layout-navigation { margin-top: -1em; } /* Fix IE7 responsive navigation positioning issue */
 
@@ -334,17 +333,17 @@ nav ul {
     nav > ul li.current {
         border-bottom: 1px solid #DBDBDB;
         background:#fff;
-    } /* Responsive Changes*/
+    }
     
     nav > ul li.dropdown:hover {
         background: #eee;
-    } /* Responsive Changes*/
+    }
     
     nav > ul li.dropdown li.dropdown:hover {
         background: #ddd;
-    } /* Responsive Changes*/
+    }
     
-    nav li.last { margin-right: 2px; } /* Responsive Changes*/
+    nav li.last { margin-right: 2px; }
     
     nav ul li a {   
         display:block;
@@ -353,19 +352,19 @@ nav ul {
         font-size: 1.077em;
         text-decoration:none;
         line-height:24px;
-    } /* Responsive Changes*/
+    }
 
 /* first level */
-nav > ul > li { float:none; } /* Responsive Changes */
-nav > ul > li > a { float:none; } /* Responsive Changes */
+nav > ul > li { float:none; }
+nav > ul > li > a { float:none; }
 nav > ul > li:hover > ul { display:block; }
 nav > ul > li:hover { }
     
 /* second level */
 nav > ul > li > ul { margin: 0 0px 0px -1px; padding:0px; display:none; position:relative; border: 1px solid #dbdbdb; border-width: 0 0 0 1px; width: 100%; } /* Responsive Changes */
 nav > ul > li > ul > li { list-style-type:none; margin:0px; border: none;}
-nav > ul > li > ul > li > a { display:block; text-decoration:none; padding-left: 1.5em; } /* Responsive Changes */
-nav > ul > li > ul > li > a:before { content: "→ "; } /* Responsive Changes */
+nav > ul > li > ul > li > a { display:block; text-decoration:none; padding-left: 1.5em; }
+nav > ul > li > ul > li > a:before { content: "→ "; }
 nav > ul > li > ul > li:hover > a { }
 
 nav > ul > li > ul > li:hover > ul { display:block; }
@@ -373,8 +372,8 @@ nav > ul > li > ul > li:hover > ul { display:block; }
 /* third level */
 nav > ul > li > ul > li > ul { margin: 0 ; padding:0px; display:none; position:relative; border: 1px solid #dbdbdb; border-width: 0; width: 100%; } /* Responsive Changes */
 nav > ul > li > ul > li > ul > li { list-style-type:none; margin:0px; border: none;}
-nav > ul > li > ul > li > ul > li > a { display:block; text-decoration:none; padding-left: 2.5em; } /* Responsive Changes */
-nav > ul > li > ul > li > ul > li > a:before { content: "→ "; } /* Responsive Changes */
+nav > ul > li > ul > li > ul > li > a { display:block; text-decoration:none; padding-left: 2.5em; }
+nav > ul > li > ul > li > ul > li > a:before { content: "→ "; }
 nav > ul > li > ul > li > ul > li:hover > a { }
 
 /* deeper levels */
@@ -407,7 +406,7 @@ nav > ul > li > ul > li > ul ul { display:none; }
 }
 
 /* These bars are added markup for styling purposed only (three span tags)
- * which you should consider changing to a background img (svg preferably with !Modernizr.svg fallback) */
+ * You should consider changing to a background img (svg preferably with !Modernizr.svg fallback) */
 #nav-collapsed span.responsive-nav-bars {
     display: block;
     float: left;
@@ -421,7 +420,7 @@ nav > ul > li > ul > li > ul ul { display:none; }
 #nav-collapsed span.responsive-menu-text { display: none; } /* "Menu" text for medium breakpoints */
 
 /* Duplicate main navigation in footer. 
-** Only needed if set in ResponsiveChanges.js */
+ * Only needed if set in ResponsiveChanges.js */
 .footer-menu { display: block!important; margin: 0!important; } 
 
 
@@ -698,6 +697,7 @@ body {
 		
 }
 
+/* Structure*/
 #branding {
     font-size: 2em;
     transition:all .2s linear; 
@@ -705,6 +705,12 @@ body {
     -moz-transition:all .2s linear; 
     -webkit-transition:all .2s linear;
 }
+
+/* Float Images */
+p img.left, 
+p img[align="left"]     { float: left; margin: 0.923em 0.923em 0.923em 0; padding: 0; }
+p img.right, 
+p img[align="right"]    { float: right; margin: 0.923em 0 0.923em 0.923em; }
 
 } /* end media query */
 
@@ -845,7 +851,8 @@ nav > ul > li > ul > li > ul > li > a:before { content: ""; }
 	
 /*
 GRID LAYOUT BEGINS HERE FOR USE 
-WITHIN HTML WIDGET AREAS AND EDITOR
+WITHIN HTML WIDGET AREAS AND EDITOR IF ADDITIONAL COLUMNS/ROWS ARE
+DESIRED
 ***************************************************************/
 /* This is using the 1140 Grid System: http://cssgrid.net/ */
 .row {
@@ -920,6 +927,10 @@ body {
 /* WIDESCREEN */
 /* Increased body size for legibility */
 @media only screen and (min-width: 1400px) { 
+body { font-size: 112%; } /* Increased legibility on large screens */
+#layout-header, #layout-navigation,  #layout-featured, #layout-before-main, #layout-main, #layout-footer, #layout-after-main, #layout-tripel {
+max-width: 1400px;
+}
 
 } /* end media query */
 

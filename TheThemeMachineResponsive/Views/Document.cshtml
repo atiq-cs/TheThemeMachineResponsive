@@ -1,18 +1,11 @@
 ﻿@using Orchard.Mvc.Html;
 @{
     var title = @WorkContext.CurrentSite.SiteName;
-    SetMeta("X-UA-Compatible", "IE=edge,chrome=1");
-    SetMeta("viewport", "width=device-width, initial-scale=1.0");
-    SetMeta("HandheldFriendly", "True"); /* Older Palm/Blackberry models and browsers like AvantGo */
-    SetMeta("MobileOptimized", "320"); /* Microsoft Pocket PC */
-    /* IOS web apps full screen mode (hides address bar and component bar at top and bottom of browser) and styling of top bar in browser.
-    SetMeta("apple-mobile-web-app-capable", "yes");
-    SetMeta("apple-mobile-web-app-status-bar-style", "black-translucent");
-    */
+    if (Model.Title != null && !string.IsNullOrWhiteSpace(Model.Title)) { title += " | " + Model.Title; }
     Style.Include("http://fonts.googleapis.com/css?family=Lobster&subset=latin");
     Style.Include("Site.css");
-    Script.Include("Respond.min.js"); /* For Responsive Layouts before IE9 */
-    Script.Include("http://code.jquery.com/jquery.min.js");
+    Script.Include("Respond.min.js"); /* Polyfill for media queries before IE9 */
+    Script.Require("jQuery");
     Script.Include("ResponsiveChanges.js"); /* For responsive navigation/layout changes in mobile/tablet layouts. Requires jQuery */
 }
 <!DOCTYPE html> 
@@ -22,6 +15,14 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head> 
     <meta charset="utf-8" /> 
+    <meta name="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True" /> <!-- Older Palm/Blackberry models and browsers like AvantGo -->
+    <meta name="MobileOptimized" content="320" /> <!-- Microsoft Pocket PC -->
+    <!-- IOS web apps full screen mode (hides address bar and component bar at top and bottom of browser) and styling of top bar in browser. 
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    -->
     <meta http-equiv="cleartype" content="on" /> <!-- Mobile IE font smoothing -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../Images/Touch/apple-touch-icon-144x144-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../Images/Touch/apple-touch-icon-114x114-precomposed.png" />
@@ -33,7 +34,6 @@
     <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
 </head> 
 <body class="@Html.ClassForPage()"> 
 @Display(Model.Body)
