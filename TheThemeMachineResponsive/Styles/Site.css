@@ -20,8 +20,6 @@ Main Accent: #999
 Links: #5f97af
 */
 
-
-
 /* Reset
 ***************************************************************/
 
@@ -266,7 +264,7 @@ label input {
 }
 /* todo: (heskew) try to get .text on stuff like .text-box */
 select, textarea, input.text, input.textMedium, input.text-small, input.text-box {
-    width: 55.33333333333333%;
+    width: 96%;
     font-family:inherit;
     padding:3px;
     border:1px solid #bdbcbc;
@@ -434,6 +432,7 @@ nav ul.breadcrumb
     border:none;
     display: inline-block;
     margin: -9px;
+    z-index: 9997;
 }
 
     nav ul.breadcrumb li
@@ -582,8 +581,6 @@ nav ul.breadcrumb
 .comment .what {}
 .comment #add-comment {}
 .comment-form #comment-by { font-size: 1.231em; font-weight: normal; margin: 0 0 1.2em 0; border:none; }
-.comment-form #comment-text { width: 55.33333333333333%; }
-.comment-form input[type="text"] { width: 43.33333333333333%; }
 .comment-disabled {}
 .comment-count { font-size: 1.231em; }
 
@@ -750,6 +747,9 @@ body
     vertical-align: middle;
 }
 
+/* Forms */
+select, textarea, input.text, input.textMedium, input.text-small, input.text-box { max-width: 65%;}
+
 } /* end media query */
 
 
@@ -764,7 +764,7 @@ body {
 ***************************************************************/
 
 /* Navigation */
-#layout-navigation { margin-top: 0; border-bottom: 1px solid #dbdbdb; }
+#layout-navigation { margin-top: 0; }
 .lt-ie8 #layout-navigation { margin-top: 2em; }
 nav ul li { background:#f6f6f6; margin: 0 2px -1px 0; }
 nav li.last { margin-right: 0; } 
@@ -795,7 +795,7 @@ nav > ul > li > ul > li > ul > li > a:before { content: ""; }
 
 /* Zones
 ***************************************************************/
-.zone-navigation { padding: 0; }
+.zone-navigation { margin-left: 1em; padding: 0; border-bottom: 1px solid #DBDBDB; }
 
 /* Secondary Zones */
 
@@ -929,9 +929,8 @@ body {
 
 
 /* WIDESCREEN */
-/* Increased body size for legibility */
 @media only screen and (min-width: 1400px) { 
-body { font-size: 112%; } /* Increased legibility on large screens */
+body { font-size: 100%; } /* Increased legibility on large screens */
 #layout-header, #layout-navigation,  #layout-featured, #layout-before-main, #layout-main, #layout-footer, #layout-after-main, #layout-tripel {
 max-width: 1400px;
 }
