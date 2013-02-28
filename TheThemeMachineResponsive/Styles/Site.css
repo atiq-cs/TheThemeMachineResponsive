@@ -544,7 +544,7 @@ nav ul.breadcrumb
 .zone-footer-quad-fourth {}
 .zone-footer { color: #999999; }
 
-/* Secondary Zones moved to 768px media query as this is when the multi-column layout begins..*/
+/* Secondary Zones moved to 769px media query as this is when the multi-column layout begins..*/
 
 /* Main
 ***************************************************************/
@@ -756,7 +756,7 @@ select, textarea, input.text, input.textMedium, input.text-small, input.text-box
 
 
 /* TABLET/NETBOOK (iPad and most Android Tablets in portrait) */
-@media only screen and (min-width: 768px) { 
+@media only screen and (min-width: 769px) { 
 body {
 }
 
